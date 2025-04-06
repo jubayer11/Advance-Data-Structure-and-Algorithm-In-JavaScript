@@ -190,6 +190,28 @@ class BinarySearchTree {
 
         return this;
     }
+
+    insert(value) {
+        if (this.values.length === 0) {
+            this.values.push(value);
+            return this.values;
+        }
+
+        let currentIndex = this.values.length - 1;
+
+        while (currentIndex > 0) {
+            let parentIndex = Math.floor((currentIndex - 1) / 2);
+
+            if (this.values[parentIndex] < this.values[currentIndex]) {
+                this.swap(parentIndex, currentIndex);
+                currentIndex = parentIndex;
+            } else {
+                break;
+            }
+        }
+
+
+    }
 }
 
 // Example usage
